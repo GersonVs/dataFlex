@@ -1,7 +1,7 @@
 ### Python ###
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.ipynb
 
 # Distribution / packaging
 .Python
@@ -31,3 +31,5 @@ local_settings.py
 db.sqlite3
 
 migrations/
+data/
+

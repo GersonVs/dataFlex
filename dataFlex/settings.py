@@ -81,22 +81,22 @@ WSGI_APPLICATION = 'dataFlex.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': { # Postgresql
+        'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
+        'NAME'    : config('PG_DB_NAME'),
+        'USER'    : config('PG_DB_USER'),
+        'PASSWORD': config('PG_DB_PSWD'),
+        'HOST'    : config('PG_DB_HOST'),
+        'PORT'    : config('PG_DB_PORT')
+    },
+    'mongo_db': {
+        'ENGINE': 'djongo',
+        'NAME': config('MG_DB_NAME'),
+        'USER': config('MG_DB_USER'),
+        'PSWD': config('MG_DB_PSWD'),
+        'HOST': config('MG_DB_HOST'),
+        'PORT': config('MG_DB_PORT'),
     }
-    # 'default': {
-    #     'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-    #     'NAME'    : config('DB_NAME'),
-    #     'USER'    : config('DB_USER'),
-    #     'PASSWORD': config('DB_PSWD'),
-    #     'HOST'    : config('DB_HOST'),
-    #     'PORT'    : config('DB_PORT')
-    # }
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     'NAME': 'db_name',
-    # }
 }
 
 
