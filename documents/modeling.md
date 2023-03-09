@@ -10,6 +10,9 @@
 -   date_joined | **timestamp/ISODate**
 -   is_staff | **boolean**
 -   last_login | **timestamp/ISODate**
+-   phone_number | **varchar/string**
+-   is_deleted | **boolean**
+-   photo | **varchar/string**
 
 #### Tabela `UserAddress`:
 
