@@ -1,20 +1,14 @@
-#### Tabela `User`:
+#### Tabela `Client`:
 
 -   id (primary key) | **integer**
--   username | **varchar/string**
--   first_name | **varchar/string**
--   last_name | **varchar/string**
--   email | **varchar/string**
--   password | **varchar/string**
--   is_active | **boolean**
--   date_joined | **timestamp/ISODate**
--   is_staff | **boolean**
--   last_login | **timestamp/ISODate**
+-   name | **varchar/string**
+-   document | **varchar/string**
 -   phone_number | **varchar/string**
--   is_deleted | **boolean**
--   photo | **varchar/string**
+-   register_date | **varchar/string**
+-   is_active | **varchar/string**
+-   is_deleted | **varchar/string**
 
-#### Tabela `UserAddress`:
+#### Tabela `ClientAddress`:
 
 -   id (primary key) | **integer**
 -   street | **varchar/string**
@@ -24,7 +18,7 @@
 -   city | **varchar/string**
 -   state | **varchar/string**
 -   zip_code | **varchar/string**
--   user_id (foreign key de `User`) | **integer**
+-   client_id (foreign key de `Client`) | **integer**
 
 #### Tabela `Product`:
 
@@ -39,7 +33,7 @@
 -   id (primary key) | **integer**
 -   date | **timestamp/ISODate**
 -   total_value | **decimal/double**
--   user_id (foreign key de `User`) | **integer**
+-   client_id (foreign key de `Client`) | **integer**
 -   user_address_id (foreign key de `UserAddress`) | **integer**
 
 #### Tabela `OrderItem`:

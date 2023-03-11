@@ -1,5 +1,5 @@
 from django.db import models
-from apps.authentication.models import User, UserAddress
+from apps.consumer.models import Client, ClientAddress
 from apps.market.choices import UnityMeasures
 
 class Product(models.Model):
@@ -18,10 +18,10 @@ class Product(models.Model):
         return self.name
 
 class Order(models.Model): 
-    date         = models.DateTimeField(auto_now_add=True)
-    total_value  = models.FloatField(default=0, help_text='Total do pedido')
-    user         = models.ForeignKey(User, on_delete=models.CASCADE, help_text='Usuário')
-    user_address = models.ForeignKey(UserAddress, on_delete=models.CASCADE, help_text='Endereço do Usuário')
+    date           = models.DateTimeField(auto_now_add=True)
+    total_value    = models.FloatField(default=0, help_text='Total do pedido')
+    client         = models.ForeignKey(Client, on_delete=models.CASCADE, help_text='Usuário')
+    client_address = models.ForeignKey(ClientAddress, on_delete=models.CASCADE, help_text='Endereço do Usuário')
 
     class Meta:
         verbose_name = "Pedido"
@@ -45,4 +45,5 @@ class OrderItem(models.Model):
     def __unicode__(self):
         return self.order.id + ' - ' + self.id 
     def __str__(self):
+        
         return self.order.id + ' - ' + self.id 

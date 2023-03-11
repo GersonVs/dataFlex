@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     #local apps
-    'apps.authentication',
+    'apps.consumer',
     'apps.market',
 ]
 
@@ -117,9 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# User Auth Model
-AUTH_USER_MODEL = 'authentication.User'
 
 #SWAGGER
 SWAGGER_SETTINGS = {
