@@ -5,7 +5,6 @@ from apps.market.choices import UnityMeasures
 class Product(models.Model):
     name          = models.CharField(max_length=200, help_text='Nome')         
     price         = models.FloatField(default=0, help_text='Preço')
-    image         = models.ImageField(null=True, blank=True, help_text='Imagem')
     unity_measure = models.CharField(max_length=3, choices=UnityMeasures.choices, default=UnityMeasures.UN, help_text='Unidade de medida')
 
     class Meta:

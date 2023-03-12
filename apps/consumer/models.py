@@ -18,9 +18,9 @@ class Client(models.Model):
         )
 
     def __unicode__(self):
-        return self.id + ' - ' + self.name
+        return f'{self.id} {self.name}'
     def __str__(self):
-        return self.id + ' - ' + self.name
+        return f'{self.id} {self.name}'
 
 class ClientAddress(models.Model):
     street     = models.CharField(max_length=150, help_text='Rua')

@@ -25,7 +25,6 @@
 -   id (primary key) | **integer**
 -   name | **varchar/string**
 -   price | **decimal/double**
--   image | **varchar/string**
 -   unity_measure | **varchar/string**
 
 #### Tabela `Order`:

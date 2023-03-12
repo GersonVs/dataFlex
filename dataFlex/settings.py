@@ -81,21 +81,21 @@ WSGI_APPLICATION = 'dataFlex.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': { # Postgresql
-        'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-        'NAME'    : config('PG_DB_NAME'),
-        'USER'    : config('PG_DB_USER'),
-        'PASSWORD': config('PG_DB_PSWD'),
-        'HOST'    : config('PG_DB_HOST'),
-        'PORT'    : config('PG_DB_PORT')
-    },
-    'mongo_db': {
+    # 'default': { # Postgresql
+    #     'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
+    #     'NAME'    : config('PG_DB_NAME'),
+    #     'USER'    : config('PG_DB_USER'),
+    #     'PASSWORD': config('PG_DB_PSWD'),
+    #     'HOST'    : config('PG_DB_HOST'),
+    #     'PORT'    : config('PG_DB_PORT')
+    # },
+    'default': { # MongoDB
         'ENGINE': 'djongo',
-        'NAME': config('MG_DB_NAME'),
-        'USER': config('MG_DB_USER'),
-        'PSWD': config('MG_DB_PSWD'),
-        'HOST': config('MG_DB_HOST'),
-        'PORT': config('MG_DB_PORT'),
+        'NAME'  : config('MG_DB_NAME'),
+        # 'CLIENT': {
+            # 'host': config('MG_DB_HOST'),
+            # 'port': config('MG_DB_PORT', cast=int),
+        # }
     }
 }
 
