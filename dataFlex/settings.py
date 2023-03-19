@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import config, Csv
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,15 +81,15 @@ WSGI_APPLICATION = 'dataFlex.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': { # Postgresql
-    #     'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-    #     'NAME'    : config('PG_DB_NAME'),
-    #     'USER'    : config('PG_DB_USER'),
-    #     'PASSWORD': config('PG_DB_PSWD'),
-    #     'HOST'    : config('PG_DB_HOST'),
-    #     'PORT'    : config('PG_DB_PORT')
-    # },
-    'default': { # MongoDB
+    'postgres': {
+        'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
+        'NAME'    : config('PG_DB_NAME'),
+        'USER'    : config('PG_DB_USER'),
+        'PASSWORD': config('PG_DB_PSWD'),
+        'HOST'    : config('PG_DB_HOST'),
+        'PORT'    : config('PG_DB_PORT')
+    },
+    'mongo_db': { # MongoDB
         'ENGINE': 'djongo',
         'NAME'  : config('MG_DB_NAME'),
         # 'CLIENT': {
@@ -98,6 +98,8 @@ DATABASES = {
         # }
     }
 }
+
+DATABASES['default'] = DATABASES[config('DEFAULT_DB', 'postgres')]
 
 
 # Password validation
