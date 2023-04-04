@@ -25,7 +25,6 @@ class Client(models.Model):
 class ClientAddress(models.Model):
     street     = models.CharField(max_length=150, help_text='Rua')
     number     = models.CharField(max_length=15, help_text='Número')
-    complement = models.CharField(max_length=250, help_text='Complemento')
     district   = models.CharField(max_length=100, help_text='Bairro')
     city       = models.CharField(max_length=100, help_text='Cidade')
     state      = models.CharField(max_length=50, help_text='Estado')

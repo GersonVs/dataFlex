@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd apps
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
     #local apps
+    'apps.authentication',
     'apps.consumer',
     'apps.market',
 ]
@@ -125,8 +127,10 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False, #Desabilita o login do django
     'PERSIST_AUTH': True, #Não perde o login quando atualiza a página
     'SECURITY_DEFINITIONS': {
-        'Basic': {
-            'type': 'basic'
+        'Bearer': {
+                'type': 'apiKey',
+                'name': 'Authorization',
+                'in': 'header'
         }
     }
 }
@@ -134,7 +138,7 @@ SWAGGER_SETTINGS = {
 # rest_framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
