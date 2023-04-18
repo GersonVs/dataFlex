@@ -9,7 +9,7 @@ router.register(r'products', ProductViewSet, basename='products')
 urlpatterns = [
     path('', include(router.urls)),
 
-    path('create_order', CreateOrderAPIView.as_view()),
-    path('get_order/<int:order_id>/', OrderDetailAPIView.as_view()),
+    path('create_order/', CreateOrderAPIView.as_view()),
+    path('detail_order/<int:order_id>/', OrderDetailAPIView.as_view()),
     path('delete_order/<int:order_id>/', OrderDeleteAPIView.as_view()),
 ]

@@ -5,13 +5,14 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,  AllowAny
 from .serializers import UserSerializer
 from dataFlex.serializers import ErrorSerializer
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
 class UserCreateAPIView(APIView):
+    permission_classes = [AllowAny]
 
     @swagger_auto_schema(
         operation_summary='Criar Usuário',
